@@ -92,21 +92,40 @@
                                                 </a>
 
                                                 <!-- Delete Button -->
-                                                <form action="{{ route('applications.destroy', $application->id) }}" method="POST" class="inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-red-500 hover:text-red-700 ml-2">
-                                                        <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                        </svg>
-                                                    </button>
-                                                </form>
+                                                <button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-application-deletion')" type="submit" class="text-red-500 hover:text-red-700 ml-2">
+                                                    <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                    </svg>
+                                                </button>
+                                                <x-modal name="confirm-application-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+                                                    <form method="post" action="{{ route('applications.destroy', $application->id) }}" class="p-6">
+                                                        @csrf
+                                                        @method('delete')
+
+                                                        <h2 class="text-lg font-medium text-gray-900">
+                                                            {{ __('Are you sure you want to delete this Application?') }}
+                                                        </h2>
+
+                                                        <p class="mt-1 text-sm text-gray-600">
+                                                            {{ __('Once the application is deleted, all of its details and data will be permanently deleted.') }}
+                                                        </p>
+
+                                                        <div class="mt-6 flex justify-end">
+                                                            <x-secondary-button x-on:click="$dispatch('close')">
+                                                                {{ __('Cancel') }}
+                                                            </x-secondary-button>
+
+                                                            <x-danger-button class="ms-3">
+                                                                {{ __('Delete Application') }}
+                                                            </x-danger-button>
+                                                        </div>
+                                                    </form>
+                                                </x-modal>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-
                             <!-- Pagination Links -->
                             <div class="mt-6">
                                 {{ $applications->links() }}
