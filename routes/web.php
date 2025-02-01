@@ -29,14 +29,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
 });
@@ -77,6 +69,8 @@ Route::middleware('auth')->group(function () {
     //Route::get('applications/{application}/approve', [ApplicationController::class, 'approve'])->name('application.approve');
     //Route::get('applications/{application}/reject', [ApplicationController::class, 'reject'])->name('application.reject');
 });
+
+Route::get('applications/search', [ApplicationController::class, 'search'])->name('applications.search');
 
 // Notification Routes
 Route::middleware('auth')->group(function () {
