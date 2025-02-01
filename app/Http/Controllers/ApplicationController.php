@@ -21,6 +21,34 @@ class ApplicationController extends Controller
        return view('applications.index', compact('applications'));
     }
 
+    public function search(StoreApplicationRequest $request)
+    {
+        //dd($request->all());
+        // Get the search query from the request search
+        $search = $request->input('search');
+
+        // Start building the query
+        $query = Application::query();
+
+        // If a search query is provided, filter the applications
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('firstname', 'like', "%{$search}%")
+                  ->orWhere('lastname', 'like', "%{$search}%")
+                  ->orWhere('trn', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%")
+                  ->orWhere('phone', 'like', "%{$search}%")
+                  ->orWhere('status', 'like', "%{$search}%");
+            });
+        }
+
+        // Paginate the results
+        $applications = $query->paginate(10);
+
+        // Pass the search query to the view to populate the search input
+        return view('applications.search', compact('applications', 'search'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -82,17 +110,7 @@ class ApplicationController extends Controller
      */
     public function show(Application $application)
     {
-        // // Check if the application has been sent for approval
-        // $hasApproval = Approval::findOrFail($application->id);
-        // if($hasApproval === null){
-        //     $hasApprovalStatus = false;
-        // }else{
-        //     $hasApprovalStatus = true;
-        // }
-        // //return view('applications.show', compact('application'));
-        // return view('applications.show', ['application' => $application,'hasApprovalStatus' => $hasApprovalStatus,]);
-
-            // Check if the application has an approval record
+        // Check if the application has an approval record
         $hasApprovalStatus = Approval::where('application_id', $application->id)->exists();
 
         // Return the view with the application and the approval status

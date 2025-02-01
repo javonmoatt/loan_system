@@ -14,20 +14,9 @@
         </nav>
     </x-slot>
 
-    <div class="p-4">
+    <div class="p-4 bg-gray-200">
         <div class="p-4 dark:border-gray-700">
             <div class="grid grid-cols-3 gap-4 mb-4">
-                <div class="flex items-center justify-center h-24 rounded-sm bg-blue-50 dark:bg-gray-800">
-                    {{-- <dl>
-                        <dt class="mb-2 text-3xl font-extrabold">{{ $customerCount }}</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Total Customers</dd>
-                    </dl> --}}
-                    <div class="rounded-lg text-2xl text-gray-400 dark:text-gray-500">
-                        <h3 class="text-lg font-semibold text-blue-800">Total Customers</h3>
-                        <p class="text-2xl font-bold text-gray-800">{{ $customerCount }}</p>
-                        <p class="text-sm text-gray-600">Current loan Customer</p>
-                    </div>
-                </div>
                 <div class="flex items-center justify-center h-24 rounded-sm bg-blue-50 dark:bg-gray-800">
                     <div class="rounded-lg text-2xl text-gray-400 dark:text-gray-500">
                         <h3 class="text-lg font-semibold text-blue-800">Total Applications</h3>
@@ -37,9 +26,40 @@
                 </div>
                 <div class="flex items-center justify-center h-24 rounded-sm bg-blue-50 dark:bg-gray-800">
                     <div class="rounded-lg text-2xl text-gray-400 dark:text-gray-500">
+                        <h3 class="text-lg font-semibold text-blue-800">Total Customers</h3>
+                        <p class="text-2xl font-bold text-gray-800">{{ $customerCount }}</p>
+                        <p class="text-sm text-gray-600">Current loan Customer</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center h-24 rounded-sm bg-blue-50 dark:bg-gray-800">
+                    <div class="rounded-lg text-2xl text-gray-400 dark:text-gray-500">
                         <h3 class="text-lg font-semibold text-blue-800">Total Loans</h3>
                         <p class="text-2xl font-bold text-gray-800">{{ $loanCount }}</p>
                         <p class="text-sm text-gray-600">Current Open Loans</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="flex items-center justify-center h-24 rounded-sm bg-blue-50 dark:bg-gray-800">
+                    <div class="rounded-lg text-2xl text-gray-400 dark:text-gray-500">
+                        <h3 class="text-lg font-semibold text-blue-800">Total Application</h3>
+                        <p class="text-2xl font-bold text-gray-800">${{ $customerCount }}</p>
+                        <p class="text-sm text-gray-600">Application loan request</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center h-24 rounded-sm bg-blue-50 dark:bg-gray-800">
+                    <div class="rounded-lg text-2xl text-gray-400 dark:text-gray-500">
+                        <h3 class="text-lg font-semibold text-blue-800">Total Loan Payments</h3>
+                        <p class="text-2xl font-bold text-gray-800">${{ number_format($paymentsTotal,2) }}</p>
+                        <p class="text-sm text-gray-600">Loan Payments this Month</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center h-24 rounded-sm bg-blue-50 dark:bg-gray-800">
+                    <div class="rounded-lg text-2xl text-gray-400 dark:text-gray-500">
+                        <h3 class="text-lg font-semibold text-blue-800">Total Loans</h3>
+                        {{-- <p class="text-2xl font-bold text-gray-800">${{ $loanTotal }}</p> --}}
+                        <p class="text-2xl font-bold text-gray-800">${{ number_format($loanTotal, 2) }}
+                        <p class="text-sm text-gray-600">Current Outstanding Balances</p>
                     </div>
                 </div>
             </div>
