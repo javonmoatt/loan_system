@@ -70,6 +70,8 @@ Route::middleware('auth')->group(function () {
     //Route::get('applications/{application}/reject', [ApplicationController::class, 'reject'])->name('application.reject');
 });
 
+Route::get('applications/search', [ApplicationController::class, 'search'])->name('applications.search');
+
 // Notification Routes
 Route::middleware('auth')->group(function () {
     Route::resource('notifications', NotificationController::class)->only(['index', 'show']);
