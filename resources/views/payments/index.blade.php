@@ -25,7 +25,7 @@
     <div class="w-full">
         <div class="dark:border-gray-700">
            <div class="grid w-full">
-                <div class="bg-black">
+                <div class="">
                     <div class="w-full">
                         <div class="bg-white p-6">
                             <!-- Page Header -->

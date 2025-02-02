@@ -35,19 +35,19 @@
     <div class="w-full">
         <div class="w-full dark:border-gray-700">
             <div class="col-span-3 w-full">
-                        <div class="bg-white p-6 max-w-2xl mx-auto">
-                            <a href="{{ route('customers.index') }}" class="px-4 py-2 rounded-md hover:text-blue-500">
-                                <div class="flex justify-start">
+                        <div class="bg-white p-6">
+                            <div class="flex justify-start">
+                                <a href="{{ route('customers.index') }}" class="rounded-md hover:text-blue-500">
                                     <div class="my-1 mx-4">
                                         <svg class="w-6 h-6 text-gray-800 hover:text-blue-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
                                         </svg>
                                     </div>
-                                    <div>
-                                        <h2 class="text-2xl font-bold mb-6">Edit Customer</h2>
-                                    </div>
+                                </a>
+                                <div>
+                                    <h2 class="text-2xl font-bold mb-6">Edit Customer</h2>
                                 </div>
-                            </a>
+                            </div>
 
                             <!-- Edit Customer Form -->
                             <form action="{{ route('customers.update', $customer->id) }}" method="POST">

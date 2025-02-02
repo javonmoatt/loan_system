@@ -9,7 +9,7 @@
         <div class="dark:border-gray-700">
             <div class="grid grid-cols-3 w-full">
                 <div class="col-span-3">
-                    <div class="w-full p-6 rounded-lg">
+                    <div class="w-full p-6">
                         <div class="flex justify-between">
                             <div>
                                 <!-- Page Heading -->

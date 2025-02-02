@@ -195,7 +195,7 @@
             <div class="w-full">
                 <div class="col-span-1 w-full">
                     <div class="w-full p-6 rounded-lg">
-                        <div class="bg-white p-6 rounded-lg max-w-4xl mx-auto">
+                        <div class="bg-white p-6">
                             <!-- Customer Details Header -->
                             <div class="flex justify-between items-center mb-6">
                                 <h2 class="text-2xl font-bold">Customer Details</h2>

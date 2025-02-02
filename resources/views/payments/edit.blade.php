@@ -31,7 +31,7 @@
     </x-slot>
 
     <div class="w-full">
-        <div class="border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        <div class="dark:border-gray-700">
            <div class="grid w-full">
                 <div class="">
                     <div class="w-full">

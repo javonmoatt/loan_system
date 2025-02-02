@@ -9,7 +9,7 @@
         <div class="dark:border-gray-700">
            <div class="grid gird-col-3 w-full">
                 <div class="col-span-3">
-                    <div class="bg-white p-6 max-w-4xl mx-auto">
+                    <div class="bg-white p-6">
                         <!-- Page Header -->
                         <div class="flex justify-between items-center mb-6">
                             <h2 class="text-2xl font-bold">Create New Customer</h2>
