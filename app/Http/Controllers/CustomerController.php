@@ -35,7 +35,17 @@ class CustomerController extends Controller
     public function store(StoreCustomerRequest $request)
     {
         // Validate the request data
-        $validatedData = $request->validated();
+        $validatedData = $request->validate([
+            'firstname' => 'required|string|max:100',
+            'lastname' => 'required|string|max:100',
+            'trn' => 'nullable|string|max:9|unique:customers',
+            'email' => 'nullable|email|max:100|unique:customers',
+            'phone' => 'nullable|string|max:11',
+            'address' => 'nullable|string',
+            'date_of_birth' => 'nullable|date',
+            'marital_status' => 'nullable|in:single,married,divorced,widowed,common_law',
+            'number_of_dependents' => 'nullable|numeric|min:0',
+        ]);
 
         // Create a new customer in the database
         Customer::create($validatedData);
@@ -84,8 +94,8 @@ class CustomerController extends Controller
     {
         // Delete the customer from the database
         $customer->delete();
-
+        //session()->flash('success');
         // Redirect to the customers index page with a success message
-        return redirect()->route('customers.index')->with('success', 'Customer deleted successfully.');
+        return redirect()->route('customers.index')->with('success', 'Customer deleted successfully!');
     }
 }
