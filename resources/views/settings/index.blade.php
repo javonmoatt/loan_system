@@ -53,6 +53,11 @@
                                         class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-blue-500 focus:outline-none border-b-2 border-transparent cursor-pointer">
                                         Security
                                     </li>
+                                    <li @click="activeTab = 'security'"
+                                        :class="{ 'border-blue-500 text-blue-500': activeTab === 'addresses' }"
+                                        class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-blue-500 focus:outline-none border-b-2 border-transparent cursor-pointer">
+                                        Addresses
+                                    </li>
                                 </ul>
 
                                 <!-- Tabs Content -->
@@ -116,6 +121,32 @@
                                     <!-- Security Settings -->
                                     <div x-show="activeTab === 'security'" class="space-y-6">
                                         <h2 class="text-xl font-semibold text-gray-800">Security Settings</h2>
+                                        <form>
+                                            <div class="space-y-4">
+                                                <div>
+                                                    <label for="current_password" class="block text-sm font-medium text-gray-700">Current Password</label>
+                                                    <input type="password" id="current_password" name="current_password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                                </div>
+                                                <div>
+                                                    <label for="new_password" class="block text-sm font-medium text-gray-700">New Password</label>
+                                                    <input type="password" id="new_password" name="new_password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                                </div>
+                                                <div>
+                                                    <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                                                    <input type="password" id="confirm_password" name="confirm_password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                                </div>
+                                                <div>
+                                                    <button type="submit" class="inline-flex justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                                                        Change Password
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- Address -->
+                                    <div x-show="activeTab === 'addresses'" class="space-y-6">
+                                        <h2 class="text-xl font-semibold text-gray-800">Addresses</h2>
                                         <form>
                                             <div class="space-y-4">
                                                 <div>

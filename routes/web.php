@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\LoanScheduleController;
+use App\Http\Controllers\StateProvenceParishController;
+use App\Http\Controllers\ZipPostalCodeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\RiskController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\LoanFeeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
@@ -71,6 +76,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('applications/search', [ApplicationController::class, 'search'])->name('applications.search');
+Route::get('countries/search', [CountryController::class, 'search'])->name('countries.search');
 
 // Notification Routes
 Route::middleware('auth')->group(function () {
@@ -161,6 +167,31 @@ Route::middleware('auth')->group(function () {
 // Audit Log Routes
 Route::middleware('auth')->group(function () {
     Route::resource('financial', FinancialController::class);
+});
+
+// Address Routes
+Route::middleware('auth')->group(function () {
+    Route::resource('addresses', AddressController::class);
+});
+
+// Country Routes
+Route::middleware('auth')->group(function () {
+    Route::resource('countries', CountryController::class);
+});
+
+// ZIP Postal Routes
+Route::middleware('auth')->group(function () {
+    Route::resource('zip_postal_code', ZipPostalCodeController::class);
+});
+
+// Audit Log Routes
+Route::middleware('auth')->group(function () {
+    Route::resource('state_province_parishes', StateProvenceParishController::class);
+});
+
+// Audit Log Routes
+Route::middleware('auth')->group(function () {
+    Route::resource('loan_schedule', LoanScheduleController::class);
 });
 
 require __DIR__.'/auth.php';
