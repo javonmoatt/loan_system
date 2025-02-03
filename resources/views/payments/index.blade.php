@@ -69,7 +69,13 @@
                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </form>
                             </div>
-
+                            <!-- Check if there are applications -->
+                            @if ($payments->isEmpty())
+                                <!-- No Applications Message -->
+                                <div class="bg-gray-100 p-6 rounded-lg text-center text-gray-600">
+                                    <p>No Payments found. Click the button above to add a new Payment.</p>
+                                </div>
+                            @else
                             <!-- Payments Table -->
                             <div class="overflow-x-auto">
                                 <table class="min-w-full bg-white border border-gray-200">
@@ -133,7 +139,7 @@
                                     </tbody>
                                 </table>
                             </div>
-
+                            @endif
                             <!-- Pagination -->
                             <div class="mt-6">
                                 {{ $payments->links() }}
