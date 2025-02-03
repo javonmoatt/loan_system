@@ -54,4 +54,9 @@ class Loan extends Model
     {
         return $this->hasMany(Document::class);
     }
+
+    public function schedules()
+    {
+        return $this->hasMany(LoanSchedule::class);
+    }
 }

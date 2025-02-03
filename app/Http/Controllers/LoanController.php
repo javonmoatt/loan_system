@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Loan;
 use App\Models\Customer;
+use App\Models\LoanSchedule;
+use App\Services\LoanCalculator;
 use App\Http\Requests\StoreLoanRequest;
 use App\Http\Requests\UpdateLoanRequest;
 
@@ -51,7 +53,10 @@ class LoanController extends Controller
         ]);
 
         // Create the loan
-        Loan::create($validatedData);
+        $loan = Loan::create($validatedData);
+
+        $schedules = LoanCalculator::generateSchedule($loan);
+        LoanSchedule::insert($schedules);
 
         // Redirect to the loans index page with a success message
         return redirect()->route('loans.index')->with('success', 'Loan created successfully.');
