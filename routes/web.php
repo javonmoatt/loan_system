@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\LoanScheduleController;
-use App\Http\Controllers\StateProvenceParishController;
-use App\Http\Controllers\ZipPostalCodeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\RiskController;
@@ -25,10 +22,13 @@ use App\Http\Controllers\CreditScoreController;
 use App\Http\Controllers\LoanCommentController;
 use App\Http\Controllers\LoanPenaltyController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\LoanScheduleController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LoanGuarantorController;
 use App\Http\Controllers\LoanInsuranceController;
+use App\Http\Controllers\ZipPostalCodeController;
 use App\Http\Controllers\LoanCollateralController;
+use App\Http\Controllers\StateProvinceParishController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -186,12 +186,14 @@ Route::middleware('auth')->group(function () {
 
 // Audit Log Routes
 Route::middleware('auth')->group(function () {
-    Route::resource('state_province_parishes', StateProvenceParishController::class);
+    Route::resource('state_province_parishes', StateProvinceParishController::class);
 });
 
 // Audit Log Routes
 Route::middleware('auth')->group(function () {
-    Route::resource('loan_schedule', LoanScheduleController::class);
+    Route::resource('loan_schedules', LoanScheduleController::class);
 });
+
+//Route::get('/loans/{loan}/loan_schedules/{loan_schedule}', [LoanScheduleController::class, 'show'])->name('loan_schedules.show.all');
 
 require __DIR__.'/auth.php';

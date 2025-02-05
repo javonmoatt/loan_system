@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Loan;
 use App\Models\LoanSchedule;
 use App\Http\Requests\StoreLoanScheduleRequest;
 use App\Http\Requests\UpdateLoanScheduleRequest;
@@ -37,7 +38,17 @@ class LoanScheduleController extends Controller
      */
     public function show(LoanSchedule $loanSchedule)
     {
-        //
+        dd($loanSchedule);
+        // Fetch the loan schedule associated with the loan
+        $loanSchedule = LoanSchedule::where('loan_id', $loanSchedule->id)->get();
+        dd($loanSchedule);
+        // Pass the loan and loan schedule to the view
+        return view('loan_schedules.show', compact('loan', 'loan_schedule'));
+
+        // $loan = Loan::findOrFail($loanSchedule->loan_id);
+        // $loan_schedule = LoanSchedule::find($loanSchedule->loan_id);
+        // dd($loan_schedule);
+        // return view('loan_schedules.show', compact('loan','loan_schedule'));
     }
 
     /**

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StateProvenceParish;
+use App\Models\StateProvinceParish;
 use App\Http\Requests\StoreStateProvenceParishRequest;
 use App\Http\Requests\UpdateStateProvenceParishRequest;
 
-class StateProvenceParishController extends Controller
+class StateProvinceParishController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class StateProvenceParishController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStateProvenceParishRequest $request)
+    public function store(StoreStateProvinceParishRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class StateProvenceParishController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(StateProvenceParish $stateProvenceParish)
+    public function show(StateProvinceParish $stateProvenceParish)
     {
         //
     }
@@ -43,7 +43,7 @@ class StateProvenceParishController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(StateProvenceParish $stateProvenceParish)
+    public function edit(StateProvinceParish $stateProvenceParish)
     {
         //
     }
@@ -51,7 +51,7 @@ class StateProvenceParishController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStateProvenceParishRequest $request, StateProvenceParish $stateProvenceParish)
+    public function update(UpdateStateProvenceParishRequest $request, StateProvinceParish $stateProvenceParish)
     {
         //
     }
@@ -59,7 +59,7 @@ class StateProvenceParishController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(StateProvenceParish $stateProvenceParish)
+    public function destroy(StateProvinceParish $stateProvenceParish)
     {
         //
     }

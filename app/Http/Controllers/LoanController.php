@@ -68,7 +68,10 @@ class LoanController extends Controller
     public function show(Loan $loan)
     {
         // Load the associated customer
-        $loan->load('customer');
+        //$loanSchedule = LoanSchedule::where('loan_id', $loan->id)->get();
+        //dd($loanSchedule);
+        $loan->load('customer','schedules');
+        //dd($loan);
         return view('loans.show', compact('loan'));
     }
 

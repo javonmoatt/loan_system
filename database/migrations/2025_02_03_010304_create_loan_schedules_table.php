@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('loan_id')->constrained()->onDelete('cascade');
             $table->date('due_date');
+            $table->decimal('start_balance', 10, 2);
             $table->decimal('amount_due', 10, 2);
             $table->decimal('principal_amount', 10, 2);
             $table->decimal('interest_amount', 10, 2);
+            $table->decimal('end_balance', 10, 2);
             $table->enum('status',['paid','unpaid','late','pending'])->default('pending');
             $table->timestamps();
         });

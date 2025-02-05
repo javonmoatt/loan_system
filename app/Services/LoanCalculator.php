@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Services;
 
 class LoanCalculator
@@ -11,7 +13,7 @@ class LoanCalculator
 
     public static function generateSchedule($loan)
     {
-        $principal = $loan->amount;
+        $principal = $loan->loan_amount;
         $annualInterestRate = $loan->interest_rate;
         $term = $loan->term;
         $monthlyInterestRate = ($annualInterestRate / 12) / 100;
